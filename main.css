@@ -17,7 +17,18 @@ body {
 	width: 100%;
 }
 #earth {
-	background-image: url('./img/earth.png');
+	overflow: hidden;
+}
+#earthimg {
+	position: relative;
+	animation: rotation 300s infinite linear;
+	width: 100vw;
+}
+
+
+@keyframes rotation {
+    from {transform: rotate(0deg);}
+    to   {transform: rotate(359deg);}
 }
 #rocket {
 	margin-left: 50%;
