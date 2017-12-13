@@ -22,7 +22,7 @@
 		for (var i = 0; i < coins.length; i++) {
 			string_insert += coins[i] + ',';
 		};
-		var link = "https://min-api.cryptocompare.com/data/pricemulti?fsyms="+string_insert+"&tsyms=GBP";
+		var link = "https://min-api.cryptocompare.com/data/pricemulti?fsyms="+string_insert+"&tsyms=GBP,USD";
 
 		var j_dict = { 'BTC': 0.015547957,'ETH': 1.08,'XMR': 0.6};
 		var j_target = 4500;
@@ -60,7 +60,7 @@
 
 		function create_coin_price(uid, response) {
 			var coin_display = document.createElement('div');
-			coin_display.innerHTML = uid + ': '+ response[uid]['GBP'];
+			coin_display.innerHTML = uid + ': '+ response[uid]['USD'];
 
 			document.getElementById('display').appendChild(coin_display);
 		}
