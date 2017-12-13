@@ -1,0 +1,62 @@
+body {
+ background-color: #003364;
+ height: 100vh;
+ margin: 0;
+ background-image: url(img/stars.jpg);
+ background-size: auto, 100%;
+}
+#moon {
+	background-image: url('./img/moon.png');
+	-webkit-transform: rotate(180deg);
+  	transform: rotate(180deg);
+}
+#sky {
+	position: relative;
+	height: 70%;
+	width: 100%;
+}
+#earth {
+	background-image: url('./img/earth.png');
+}
+#rocket {
+	margin-left: 50%;
+	padding-right: 50px;
+}
+.rocket_img {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+	height: 70px;
+	width: 70px;
+}
+.planets {
+	height: 15%;
+	width: 100%;
+	background-size: 100%, auto;
+}
+.rocket_col {
+	height: 100%;
+	width: 10%;
+	float: left;
+}
+.side_padding {
+	height: 100%;
+	width: 35%;
+	float: left;
+}
+
+
+@media only screen and (max-width: 691px) {
+	#moon {
+	background-image: url('./img/moon.png');
+	-webkit-transform: rotate(180deg);
+  	transform: rotate(180deg);
+	}
+	.planets {
+	height: 15%;
+	width: auto;
+	background-size: auto, 100px;
+	background-position: center top;
+	}
+
+}

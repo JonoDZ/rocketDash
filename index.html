@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+  	<link rel="stylesheet" type="text/css" href="main.css">
+	<div id="moon" class="planets"></div>
+	<div id="sky">
+		<div class="side_padding"></div>
+		<div class="rocket_col"> <img class="rocket_img" id="m_rocket" src="img/m_rocket.png"> </div>
+		<div class="rocket_col"> <img class="rocket_img" id="j_rocket" src="img/rocket.png"> </div>
+		<div class="rocket_col"> <img class="rocket_img" id="min_rocket" src="img/min_rocket.png"> </div>
+				
+		<div class=""></div>
+	</div>
+	<div id="earth" class="planets"></div>
+	<script type="text/javascript">
+		
+		var j_dict ={ 'BTC': 0.015547957,'ETH': 1.08,'XMR': 0.6};
+		var j_target = 4500;
+		
+		var min_dict = {'BTC': 0.5, 'LTC': 8, 'XMR': 1.6}
+		var min_target = 65000;
+
+		var m_dict = {'BTC': 0.00322245,'ETH': 0.120720255,'ZEC': 0.4131085}
+		var m_target = 2247.3;
+		var money = 0;
+		var progress = 0;
+
+		function get_padding(user_coins, response, target, div_height) {
+			var total = 0;
+			var price = 0;
+			for (var key in user_coins) {
+				price = user_coins[key] * response[key]['GBP'];
+				total += price;
+			};
+			var percentage = (total / target) * 100;
+			return div_height - ((div_height * percentage) / 100);
+		}
+		function apply_padding(uid, padding, rocket_id) {
+			var style = document.createElement('style');
+			style.type = 'text/css';
+			style.innerHTML = '.'+ uid +'_css { margin-top:' + padding + 'px ; }';
+
+			document.getElementsByTagName('head')[0].appendChild(style);
+			document.getElementById(rocket_id).className = uid +'_css rocket_img';
+		}
+
+
+		function code() {
+			var clientHeight = document.getElementById('sky').clientHeight;
+			var xhr = new XMLHttpRequest();
+			xhr.open("GET", "https://min-api.cryptocompare.com/data/pricemulti?fsyms=ETH,BTC,XMR,ZEC,LTC&tsyms=GBP", false);
+			xhr.send();
+			response = JSON.parse(xhr.response);
+			
+			j_padding = get_padding(j_dict, response, j_target, clientHeight)
+			apply_padding("j", j_padding, "j_rocket");
+			
+			m_padding = get_padding(m_dict, response, m_target, clientHeight)
+			apply_padding("m", m_padding, "m_rocket");
+			
+			min_padding = get_padding(min_dict, response, min_target, clientHeight)
+			apply_padding("min", min_padding, "min_rocket");
+			console.log("hello")
+
+
+		}
+		window.onload = code;
+		setInterval(code,1800000);
+
+	</script>
+</body>
+</html>
