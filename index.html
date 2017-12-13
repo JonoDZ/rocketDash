@@ -17,6 +17,7 @@
 	<div id="earth" class="planets"></div>
 	<script type="text/javascript">
 
+		//set up our coins to track, and generate the API link
 		var coins = ['ETH', 'BTC', 'XMR', 'ZEC', 'LTC'];
 		var string_insert  = "";
 		for (var i = 0; i < coins.length; i++) {
@@ -24,6 +25,7 @@
 		};
 		var link = "https://min-api.cryptocompare.com/data/pricemulti?fsyms="+string_insert+"&tsyms=GBP,USD";
 
+		//define ratios and targets
 		var j_dict = { 'BTC': 0.015547957,'ETH': 1.08,'XMR': 0.6};
 		var j_target = 4500;
 		
@@ -32,10 +34,12 @@
 
 		var m_dict = {'BTC': 0.00322245,'ETH': 0.120720255,'ZEC': 0.4131085}
 		var m_target = 2247.3;
+
+		//some global vars
 		var money = 0;
 		var progress = 0;
 
-
+		//generates the correct padding to move the rockets up and down
 		function get_padding(user_coins, response, target, div_height) {
 			var total = 0;
 			var price = 0;
@@ -47,7 +51,7 @@
 			return div_height - ((div_height * percentage) / 100);
 		}
 
-
+		//applies the CSS classes
 		function apply_padding(uid, padding, rocket_id) {
 			var style = document.createElement('style');
 			style.type = 'text/css';
@@ -57,7 +61,7 @@
 			document.getElementById(rocket_id).className = uid +'_css rocket_img';
 		}
 
-
+		//creates the side bar coins
 		function create_coin_price(uid, response) {
 			var coin_display = document.createElement('div');
 			coin_display.innerHTML = uid + ': '+ response[uid]['USD'];
@@ -65,7 +69,7 @@
 			document.getElementById('display').appendChild(coin_display);
 		}
 
-
+		//main code block
 		function code(link, coin_array) {
 			var clientHeight = document.getElementById('sky').clientHeight;
 			var xhr = new XMLHttpRequest();
@@ -74,6 +78,7 @@
 			response = JSON.parse(xhr.response);
 			console.log(response);
 			
+			//get the padding, apply the padding to move each rocket
 			j_padding = get_padding(j_dict, response, j_target, clientHeight)
 			apply_padding("j", j_padding, "j_rocket");
 			
@@ -82,13 +87,13 @@
 			
 			min_padding = get_padding(min_dict, response, min_target, clientHeight)
 			apply_padding("min", min_padding, "min_rocket");
-			console.log("hello")
 
+			//apply all the coins to the side bar
 			for (var i = 0; i < coins.length; i++) {
 			create_coin_price(coins[i],response);
 			};
 		};
-		
+		//update every 30 mins
 		setInterval(code(link, coins),1800000);
 
 

@@ -3,7 +3,7 @@ body {
  height: 100vh;
  margin: 0;
  background-image: url(img/stars.jpg);
- background-size: auto, 100%;
+ background-size: cover;
 }
 #moon {
 	background-image: url('./img/moon.png');
@@ -62,5 +62,6 @@ body {
 	background-size: auto, 100px;
 	background-position: center top;
 	}
+
 
 }
