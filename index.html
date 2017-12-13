@@ -7,7 +7,7 @@
   	<link rel="stylesheet" type="text/css" href="main.css">
 	<div id="moon" class="planets"></div>
 	<div id="sky">
-		<div class="side_padding"></div>
+		<div id="display" class="side_padding"></div>
 		<div class="rocket_col"> <img class="rocket_img" id="m_rocket" src="img/m_rocket.png"> </div>
 		<div class="rocket_col"> <img class="rocket_img" id="j_rocket" src="img/rocket.png"> </div>
 		<div class="rocket_col"> <img class="rocket_img" id="min_rocket" src="img/min_rocket.png"> </div>
@@ -16,8 +16,15 @@
 	</div>
 	<div id="earth" class="planets"></div>
 	<script type="text/javascript">
-		
-		var j_dict ={ 'BTC': 0.015547957,'ETH': 1.08,'XMR': 0.6};
+
+		var coins = ['ETH', 'BTC', 'XMR', 'ZEC', 'LTC'];
+		var string_insert  = "";
+		for (var i = 0; i < coins.length; i++) {
+			string_insert += coins[i] + ',';
+		};
+		var link = "https://min-api.cryptocompare.com/data/pricemulti?fsyms="+string_insert+"&tsyms=GBP";
+
+		var j_dict = { 'BTC': 0.015547957,'ETH': 1.08,'XMR': 0.6};
 		var j_target = 4500;
 		
 		var min_dict = {'BTC': 0.5, 'LTC': 8, 'XMR': 1.6}
@@ -27,6 +34,7 @@
 		var m_target = 2247.3;
 		var money = 0;
 		var progress = 0;
+
 
 		function get_padding(user_coins, response, target, div_height) {
 			var total = 0;
@@ -38,6 +46,8 @@
 			var percentage = (total / target) * 100;
 			return div_height - ((div_height * percentage) / 100);
 		}
+
+
 		function apply_padding(uid, padding, rocket_id) {
 			var style = document.createElement('style');
 			style.type = 'text/css';
@@ -48,12 +58,21 @@
 		}
 
 
-		function code() {
+		function create_coin_price(uid, response) {
+			var coin_display = document.createElement('div');
+			coin_display.innerHTML = uid + ': '+ response[uid]['GBP'];
+
+			document.getElementById('display').appendChild(coin_display);
+		}
+
+
+		function code(link, coin_array) {
 			var clientHeight = document.getElementById('sky').clientHeight;
 			var xhr = new XMLHttpRequest();
-			xhr.open("GET", "https://min-api.cryptocompare.com/data/pricemulti?fsyms=ETH,BTC,XMR,ZEC,LTC&tsyms=GBP", false);
+			xhr.open("GET", link, false);
 			xhr.send();
 			response = JSON.parse(xhr.response);
+			console.log(response);
 			
 			j_padding = get_padding(j_dict, response, j_target, clientHeight)
 			apply_padding("j", j_padding, "j_rocket");
@@ -65,10 +84,13 @@
 			apply_padding("min", min_padding, "min_rocket");
 			console.log("hello")
 
+			for (var i = 0; i < coins.length; i++) {
+			create_coin_price(coins[i],response);
+			};
+		};
+		
+		setInterval(code(link, coins),1800000);
 
-		}
-		window.onload = code;
-		setInterval(code,1800000);
 
 	</script>
 </body>
