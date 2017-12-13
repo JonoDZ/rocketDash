@@ -5,6 +5,7 @@
 </head>
 <body>
   	<link rel="stylesheet" type="text/css" href="main.css">
+  	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/csshake/1.5.2/csshake.css">
 	<div id="moon" class="planets"></div>
 	<div id="sky">
 		<div id="display" class="side_padding"></div>
@@ -12,9 +13,9 @@
 		<div class="rocket_col"> <img class="rocket_img" id="j_rocket" src="img/rocket.png"> </div>
 		<div class="rocket_col"> <img class="rocket_img" id="min_rocket" src="img/min_rocket.png"> </div>
 				
-		<div class=""></div>
 	</div>
 	<div id="earth" class="planets"></div>
+
 	<script type="text/javascript">
 
 		//set up our coins to track, and generate the API link
@@ -58,7 +59,7 @@
 			style.innerHTML = '.'+ uid +'_css { margin-top:' + padding + 'px ; }';
 
 			document.getElementsByTagName('head')[0].appendChild(style);
-			document.getElementById(rocket_id).className = uid +'_css rocket_img';
+			document.getElementById(rocket_id).className = uid +'_css rocket_img jono-shake';
 		}
 
 		//creates the side bar coins
