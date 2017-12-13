@@ -97,23 +97,24 @@ body {
 	width: 50%;
 	z-index: 11;
 	margin-left: 50%;
-	
-	
 }
+
 #min_line-pusher {
-	position: fixed;
+	position: relative;
 	padding-top: 455px;
 	width: 50%;
 	margin-left: 50%;
 	z-index: 13;
 }
+
 #m_line-pusher {
-	position: fixed;
+	position: relative;
 	padding-top: 495px;
 	width: 50%;
 	margin-left: 50%;
 	z-index: 12;
 }
+
 #line-buffer {
 	width: 100px;
 	height: 10px;
