@@ -6,30 +6,38 @@ body {
  background-image: url(img/stars.jpg);
  background-size: cover;
 }
+
+/* PLANETS */
 #moon {
 	background-image: url('./img/moon.png');
 	-webkit-transform: rotate(180deg);
   	transform: rotate(180deg);
 }
+
 #sky {
 	position: relative;
 	height: 70%;
 	width: 100%;
 }
+
 #earth {
 	overflow: hidden;
 }
+
 #earthimg {
 	position: relative;
 	animation: rotation 800s infinite linear;
 	width: 100vw;
 }
 
-
-@keyframes rotation {
-    from {transform: rotate(0deg);}
-    to   {transform: rotate(359deg);}
+.planets {
+	height: 15%;
+	width: 100%;
+	background-size: 100%, auto;
 }
+
+/* ROCKETS */
+
 #rocket {
 	margin-left: 50%;
 	padding-right: 50px;
@@ -40,11 +48,8 @@ body {
     margin-right: auto;
 	height: 70px;
 	width: 70px;
-}
-.planets {
-	height: 15%;
-	width: 100%;
-	background-size: 100%, auto;
+	position: relative;
+	z-index: 20;
 }
 .rocket_col {
 	height: 100%;
@@ -61,12 +66,21 @@ body {
 	font-size: 1.5em;
 }
 
-.jono-shake {
+.rocket-shake {
 	position: relative;
 	animation-name: myshake;
 	animation-duration: 20s;
 	animation-iteration-count: infinite;
 }
+
+#j_shake, #j_flame {
+	animation-delay: 2s;
+}
+#m_shake, #m_flame {
+    animation-direction: reverse;
+}
+
+/* animations */
 
 @keyframes myshake {
 	0% {left: 0px;}
@@ -81,55 +95,12 @@ body {
 	90% {left: -1px; top:-1px; transform: rotate(1deg);}
 	100% {left: 2px; top: -2px; transform: rotate(0deg);}
 }
-.line-sec {
-	color: #FFF;
-	font-family: arial;
-}
-#line {
-	height: 1px;
-	width: 100%;
-}
-.line-pusher {
-	height: 1px;
-	border-bottom: 2px dashed;
-	border-color: #FFF;
+
+@keyframes rotation {
+    from {transform: rotate(0deg);}
+    to   {transform: rotate(359deg);}
 }
 
-#j_rocket {
-	animation-delay: 2s;
-}
-#m_rocket {
-    animation-direction: reverse;
-}
-
-#j_line-pusher {
-	position: relative;
-	padding-top: 425px;
-	width: 50%;
-	z-index: 11;
-	margin-left: 50%;
-}
-
-#min_line-pusher {
-	position: relative;
-	padding-top: 455px;
-	width: 50%;
-	margin-left: 50%;
-	z-index: 13;
-}
-
-#m_line-pusher {
-	position: relative;
-	padding-top: 495px;
-	width: 50%;
-	margin-left: 50%;
-	z-index: 12;
-}
-
-#line-buffer {
-	width: 100px;
-	height: 10px;
-	}
 
 @media only screen and (max-width: 691px) {
 	#moon {
@@ -143,6 +114,4 @@ body {
 	background-size: auto, 100px;
 	background-position: center top;
 	}
-
-
 }
