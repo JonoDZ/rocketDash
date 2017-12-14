@@ -1,9 +1,8 @@
 
 .rocket_flame{
   margin: auto;
-  margin-left:48px;
   margin-top: -5px;
-  width: 30px;
+  width: 8px;
   position:relative;
   z-index: 19;
   transform-origin:center bottom;
