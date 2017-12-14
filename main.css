@@ -11,6 +11,7 @@ body {
 	height: 100vh;
 	background-image: url(img/cloud.png);
 	animation:move-clouds-back 400s linear infinite;
+	background-size: cover;
 	position: relative;
 }
 
