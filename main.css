@@ -1,10 +1,22 @@
 body {
-color: #32c42b;
- background-color: #003364;
+ color: #32c42b;
+ background-color: #01060a;
  height: 100vh;
  margin: 0;
- background-image: url(img/stars.jpg);
+ background-image: url(img/stars.png);
  background-size: cover;
+}
+
+.container {
+	height: 100vh;
+	background-image: url(img/cloud.png);
+	animation:move-clouds-back 400s linear infinite;
+	position: relative;
+}
+
+@keyframes move-clouds-back {
+    from {background-position:0 0;}
+    to {background-position:10000px 0;}
 }
 /* PLANETS */
 #moon {
@@ -13,6 +25,7 @@ color: #32c42b;
 	-webkit-transform: rotate(180deg);
   	transform: rotate(180deg);
 }
+
 #moon_img {
 	position: relative;
 	animation: rotation 300s infinite linear;
@@ -20,14 +33,17 @@ color: #32c42b;
     display: block;
     margin: 0 auto;
 }
+
 #sky {
 	position: relative;
 	height: 70%;
 	width: 100%;
 }
+
 #earth {
 	height: 15%;
 }
+
 #earth_img {
 	position: relative;
 	animation: rotation 1000s infinite linear;
@@ -35,6 +51,7 @@ color: #32c42b;
 	display: block;
     margin: 0 auto;
 }
+
 .planets {
 	overflow: hidden;
 	width: 100%;
@@ -106,14 +123,14 @@ color: #32c42b;
 
 @media only screen and (max-width: 691px) {
 	#moon {
-		background-image: url('./img/moon.png');
-		-webkit-transform: rotate(180deg);
-	  	transform: rotate(180deg);
+	background-image: url('./img/moon.png');
+	-webkit-transform: rotate(180deg);
+  	transform: rotate(180deg);
 	}
 	.planets {
-		height: 15%;
-		width: auto;
-		background-size: auto, 100px;
-		background-position: center top;
+	height: 15%;
+	width: auto;
+	background-size: auto, 100px;
+	background-position: center top;
 	}
 }
