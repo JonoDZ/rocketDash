@@ -1,39 +1,43 @@
 body {
-	color: #32c42b;
+color: #32c42b;
  background-color: #003364;
  height: 100vh;
  margin: 0;
  background-image: url(img/stars.jpg);
  background-size: cover;
 }
-
 /* PLANETS */
 #moon {
-	background-image: url('./img/moon.png');
+	height: 15%;
+	background-size: 20%, auto;
 	-webkit-transform: rotate(180deg);
   	transform: rotate(180deg);
 }
-
+#moon_img {
+	position: relative;
+	animation: rotation 300s infinite linear;
+	width: 50vw;
+    display: block;
+    margin: 0 auto;
+}
 #sky {
 	position: relative;
 	height: 70%;
 	width: 100%;
 }
-
 #earth {
-	overflow: hidden;
-}
-
-#earthimg {
-	position: relative;
-	animation: rotation 800s infinite linear;
-	width: 100vw;
-}
-
-.planets {
 	height: 15%;
+}
+#earth_img {
+	position: relative;
+	animation: rotation 1000s infinite linear;
+	width: 100vw;
+	display: block;
+    margin: 0 auto;
+}
+.planets {
+	overflow: hidden;
 	width: 100%;
-	background-size: 100%, auto;
 }
 
 /* ROCKETS */
@@ -65,14 +69,12 @@ body {
 	font-family: monospace;
 	font-size: 1.5em;
 }
-
 .rocket-shake {
 	position: relative;
 	animation-name: myshake;
 	animation-duration: 20s;
 	animation-iteration-count: infinite;
 }
-
 #j_shake, #j_flame {
 	animation-delay: 2s;
 }
@@ -85,14 +87,14 @@ body {
 @keyframes myshake {
 	0% {left: 0px;}
 	10% {left: 4px; top:3px; transform: rotate(5deg);}
-	20% {left: 0px; top:2px; transform: rotate(5deg);}
+	20% {left: 0px; top:3px; transform: rotate(7deg);}
 	30% {left: -2px; top:-2px; transform: rotate(2deg);}
 	40% {left: 0px; top:2px; transform: rotate(-7deg);}
-	50% {left: 1px; top:1px; transform: rotate(-8deg);}
-	60% {left: -2px; top:2px; transform: rotate(2deg);}
+	50% {left: 3px; top:-1px; transform: rotate(-8deg);}
+	60% {left: -2px; top:2px; transform: rotate(5deg);}
 	70% {left: 2px; top:1px; transform: rotate(2deg);}
 	80% {left: 1px; top:-2px; transform: rotate(-1deg);}
-	90% {left: -1px; top:-1px; transform: rotate(1deg);}
+	90% {left: -2px; top:-1px; transform: rotate(1deg);}
 	100% {left: 2px; top: -2px; transform: rotate(0deg);}
 }
 
@@ -104,14 +106,14 @@ body {
 
 @media only screen and (max-width: 691px) {
 	#moon {
-	background-image: url('./img/moon.png');
-	-webkit-transform: rotate(180deg);
-  	transform: rotate(180deg);
+		background-image: url('./img/moon.png');
+		-webkit-transform: rotate(180deg);
+	  	transform: rotate(180deg);
 	}
 	.planets {
-	height: 15%;
-	width: auto;
-	background-size: auto, 100px;
-	background-position: center top;
+		height: 15%;
+		width: auto;
+		background-size: auto, 100px;
+		background-position: center top;
 	}
 }
