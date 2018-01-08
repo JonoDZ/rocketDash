@@ -3,52 +3,56 @@
 <head>
 	<title></title>
 </head>
-<body>
+<body >
   	<link rel="stylesheet" type="text/css" href="main.css">
   	<link rel="stylesheet" type="text/css" href="flame.css">
   	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/csshake/1.5.2/csshake.css">
-	<div id="moon" class="planets"></div>
-	<div id="sky">
-		<div id="display" class="side_padding"></div>
-		<div class="rocket_col"> 
-			<div class="rocket-shake" id="m_shake">
-				<img class="rocket_img" id="m_rocket" src="img/m_rocket.png"> 
-				<div id="m_flame" class="rocket_flame">
-				  <div class="red flame"></div>
-				  <div class="orange flame"></div>
-				  <div class="yellow flame"></div>
-				  <div class="white flame"></div>
+		
+  	<div class="container">
+		<div id="moon" class="planets">
+			<img id="moon_img" src="img/moon2.png">
+		</div>
+		<div id="sky">
+			<div id="display" class="side_padding"></div>
+			<div class="rocket_col"> 
+				<div class="rocket-shake" id="m_shake">
+					<img class="rocket_img" id="m_rocket" src="img/m_rocket.png"> 
+					<div id="m_flame" class="rocket_flame">
+					  <div class="red flame"></div>
+					  <div class="orange flame"></div>
+					  <div class="yellow flame"></div>
+					  <div class="white flame"></div>
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="rocket_col">
-			<div class="rocket-shake" id="j_shake">
-				<img class="rocket_img" id="j_rocket" src="img/j_rocket.png"> 
-				<div id="j_flame" class="rocket_flame">
-					<div class="red flame"></div>
-					<div class="orange flame"></div>
-					<div class="yellow flame"></div>
-					<div class="white flame"></div>
+			<div class="rocket_col">
+				<div class="rocket-shake" id="j_shake">
+					<img class="rocket_img" id="j_rocket" src="img/j_rocket.png"> 
+					<div id="j_flame" class="rocket_flame">
+						<div class="red flame"></div>
+						<div class="orange flame"></div>
+						<div class="yellow flame"></div>
+						<div class="white flame"></div>
+					</div>
 				</div>
 			</div>
+			<div class="rocket_col"> 
+				<div class="rocket-shake">
+					<img class="rocket_img" id="min_rocket" src="img/min_rocket.png">
+					<div class="rocket_flame">
+						<div class="red flame"></div>
+						<div class="orange flame"></div>
+						<div class="yellow flame"></div>
+						<div class="white flame"></div>
+					</div>
+				</div>	
+			</div>
 		</div>
-		<div class="rocket_col"> 
-			<div class="rocket-shake">
-				<img class="rocket_img" id="min_rocket" src="img/min_rocket.png">
-				<div class="rocket_flame">
-					<div class="red flame"></div>
-					<div class="orange flame"></div>
-					<div class="yellow flame"></div>
-					<div class="white flame"></div>
-				</div>
-			</div>	
+		<div id="earth" class="planets">
+			<img id="earth_img" src="img/earth2.png">
 		</div>
 	</div>
-	<div id="earth" class="planets">
-		<img id="earthimg" src="img/earth2.png">
-	</div>
-
 	<script type="text/javascript">
 
 		//set up our coins to track, and generate the API link
